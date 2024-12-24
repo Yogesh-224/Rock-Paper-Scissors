@@ -1,0 +1,229 @@
+/* General Body Styling */
+body {
+    background: linear-gradient(to right, #4b79a1, #283e51); /* Dark gradient for a sleek, professional look */
+    font-family: 'Poppins', sans-serif; /* A modern font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Keep title and other elements in a column */
+    height: 100vh;
+    margin: 0;
+    color: white;
+    overflow: auto; /* Allow scrolling if needed */
+    animation: fadeIn 2s ease-out; /* Smooth fade-in animation */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Title Styling */
+  .title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 40px; /* Increased margin to provide space between title and buttons */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-out;
+    text-align: center;
+    z-index: 10; /* Ensure it stays visible */
+  }
+  
+  /* Container for Buttons (Images in a row) */
+  .buttons-container {
+    display: flex; /* Flexbox to align buttons in a row */
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 50px; /* Space below the buttons */
+  }
+  
+  /* Container for Reset Score and Auto Play Buttons in a Row */
+  .buttons-container-bottom {
+    display: flex; /* Align buttons in a row */
+    justify-content: center; /* Center the buttons */
+    gap: 20px;
+  }
+  
+  /* Move Button Styling */
+  .move-button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 3px solid #fff;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    animation: scaleUp 0.5s ease-out;
+    z-index: 10; /* Ensure buttons are above other elements */
+  }
+  
+  /* Button Hover Effect */
+  .move-button:hover {
+    transform: translateY(-10px) scale(1.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Shake Animation */
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.6s ease-in-out;
+  }
+  
+  /* Move Icon Styling */
+  .move-icon {
+    height: 80px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Shake Icon on Button Click */
+  .move-button:active .move-icon {
+    transform: scale(0.9); /* Shrink icon on click */
+  }
+  
+  /* Result Text Styling */
+  .result {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    animation: fadeInText 1.5s ease-out forwards;
+    z-index: 10; /* Ensure result is above other elements */
+  }
+  
+  /* Score Text Styling */
+  .score {
+    font-size: 22px;
+    margin-top: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    animation: fadeInText 1.5s ease-out forwards;
+    z-index: 10; /* Ensure score is above other elements */
+  }
+  
+  /* Buttons for Reset Score and Auto Play */
+  .reset-score-button,
+  .auto-play-button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+    z-index: 10; /* Ensure buttons are above other elements */
+  }
+  
+  .reset-score-button:hover,
+  .auto-play-button:hover {
+    background-color: #ff3333;
+    transform: translateY(-5px); /* Hover effect */
+  }
+  
+  .reset-score-button:active,
+  .auto-play-button:active {
+    transform: translateY(2px); /* Button press effect */
+  }
+  
+  /* Moves Display Styling */
+  .js-moves {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInText 2s ease-out forwards;
+    z-index: 10; /* Ensure moves are visible */
+  }
+  
+  /* Button Focus Styling */
+  button:focus {
+    outline: none;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media screen and (max-width: 768px) {
+    .move-button {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .move-icon {
+      height: 70px;
+    }
+  
+    .title {
+      font-size: 35px;
+    }
+  
+    .score,
+    .result {
+      font-size: 20px;
+    }
+  
+    .reset-score-button,
+    .auto-play-button {
+      padding: 10px 25px;
+    }
+  }
+  
